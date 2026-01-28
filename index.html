@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title> Web Layout </title>
+
+<style>
+
+/* Container */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Article */
+article {
+    padding: 20px;
+    width: 70%;
+    background-color: yellow;
+    min-height: 300px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 30%;
+    background: blue;
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar ul li a:hover {
+    background: red;
+}
+
+/* Top Navigation */
+ul.nav {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+ul.nav li a {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.nav li a:hover {
+    background-color: blue;
+    color: black;
+}
+
+/* Header */
+header {
+    background-color: black;
+    padding: 5px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    padding: 5px;
+    text-align: center;
+    color: white;
+}
+
+/* Clearfix */
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h2> SDIHS </h2>
+    <h3 style="font-size: 18px;"> Santo Domingo Integrated High School </h3>
+</header>
+
+<!-- TOP NAVIGATION -->
+<ul class="nav">
+    <li> <a href="#"> Home </a> </li>
+    <li> <a href="http://127.0.0.1:28003/main/0/storage/emulated/0/1stquarter.html"> First Quarter </a> </li>
+    <li> <a href="http://127.0.0.1:28003/main/0/storage/emulated/0/2ndquarter.html"> Second Quarter </a> </li>
+    <li> <a href="https://www.facebook.com/share/1AGZjzhpnm/"> About </a> </li>
+</ul>
+
+<section>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <ul>
+            <li> <a href="#" onclick="loadContent('home')"> School Profile </a> </li>
+            <li> <a href="#" onclick="loadContent('shs')"> SHS </a> </li>
+            <li> <a href="#" onclick="loadContent('jhs')"> JHS </a> </li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <article id="content">
+        <h1> School Profile </h1>
+        <p>
+            Santo Domingo Integrated High School was founded in 1971. <br>
+            It is located at Barangay Santo Domingo, City of Santa Rosa, Laguna.
+        </p>
+    </article>
+
+</div>
+
+</section>
+
+<footer>
+    <p> © 2025 SDIHS </p>
+</footer>
+
+<script>
+
+function loadContent(section) {
+
+    const content = document.getElementById('content');
+
+    if (section === 'home') {
+        content.innerHTML = `
+            <h2> School Profile </h2>
+            <h3> Mission </h3>
+            <p>
+                We dream of Filipinos who passionately love their country and whose values and competencies
+                enable them to realize their full potential and contribute meaningfully to building the nation.
+            </p>
+        `;
+    }
+
+    else if (section === 'shs') {
+        content.innerHTML = `
+            <h2> SHS </h2>
+            <p> ... contents for senior high school students ... </p>
+        `;
+    }
+
+    else if (section === 'jhs') {
+        content.innerHTML = `
+            <h2> JHS </h2>
+            <p> ... contents for junior high school students ... </p>
+        `;
+    }
+}
+
+</script>
+
+</body>
+</html>
